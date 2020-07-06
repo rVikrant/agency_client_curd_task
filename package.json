@@ -1,0 +1,49 @@
+{
+  "name": "agency-client",
+  "version": "1.0.0",
+  "description": "agency-client backend apis",
+  "main": "server.js",
+  "scripts": {
+    "test": "SET NODE_ENV=mochaTest && mocha --timeout 10000",
+    "start": "SET NODE_ENV=local && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "agency",
+    "client"
+  ],
+  "author": "Vikrant",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.1.0",
+    "bcryptjs": "^2.4.3",
+    "boom": "^6.0.0",
+    "dotenv": "^7.0.0",
+    "email-validator": "^2.0.4",
+    "hapi": "^18.1.0",
+    "hapi-auth-jwt2": "^8.3.0",
+    "hapi-swagger": "^9.4.2",
+    "inert": "^5.1.3",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.21",
+    "randomstring": "^1.1.5",
+    "vision": "^5.4.4",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.3.0",
+    "wurst": "^4.1.1"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
+  }
+}
