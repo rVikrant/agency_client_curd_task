@@ -19,7 +19,7 @@ validator.saveAgencyAndClient = {
     state: joi.string().required().description("agency state here"),
     phoneNo: joi
       .string()
-      .regex(/^\+[1-9]{1-3}[0-9]{6-15}$/)
+      .regex(/^\+[1-9]{1,3}[0-9]{6,15}$/)
       .required()
       .description(
         "agency phone no here with countrycode prefixed + here like +912345678091"
@@ -38,7 +38,7 @@ validator.saveAgencyAndClient = {
           .description("client email id here"),
         phoneNo: joi
           .string()
-          .regex(/^\+[1-9]{1-3}[0-9]{6-15}$/)
+          .regex(/^\+[1-9]{1,3}[0-9]{6,15}$/)
           .required()
           .description(
             "client phone no here with countrycode prefixed + here like +912345678091"
@@ -78,7 +78,7 @@ validator.updateClient = {
       .description("client email id here"),
     phoneNo: joi
       .string()
-      .regex(/^\+[1-9]{1-3}[0-9]{6-15}$/)
+      .regex(/^\+[1-9]{1,3}[0-9]{6,15}$/)
       .required()
       .description(
         "client phone no here with countrycode prefixed + here like +912345678091"
