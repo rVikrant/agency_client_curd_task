@@ -151,7 +151,7 @@ const topClients = async (query) => {
                             as: "agencyId"
                         }
                     },
-                    {$unwind: "agencyId"},
+                    {$unwind: "$agencyId"},
                     {
                         $project: {
                             totalBill: "$totalBill",
