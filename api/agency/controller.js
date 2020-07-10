@@ -47,13 +47,15 @@ const saveAgencyAndClient = async (payload) => {
     agency = (await saveData(agencyModel, payload))._doc;
 
     // now create data to save in clients
-    clients = clients.map(async (client) => {
+    clients = await clients.map((client) => {
       client.agencyId = agency._id;
-      client.clientId = await generateRandomString();
+      client.status = status[0];
+      client.clientId = generateRandomString();
 
       return client;
     });
 
+    console.log(clients);
     // now insert in bulk the data
     await insertMany(clientModel, clients);
 
@@ -125,7 +127,7 @@ const topClients = async (query) => {
       };
 
       if(query.agencyId) {
-        criteria.agencyId = query.agencyId;
+        criteria.agencyId = ObjectId(query.agencyId);
       }
 
         let {count, data} = (await aggregateData(clientModel, [{
