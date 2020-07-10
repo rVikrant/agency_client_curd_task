@@ -128,7 +128,7 @@ const topClients = async (query) => {
         criteria.agencyId = query.agencyId;
       }
 
-        let {count, data} = (await aggregateData(clientModel, {
+        let {count, data} = (await aggregateData(clientModel, [{
             $match: criteria
         }, {
             $facet: {
@@ -166,7 +166,7 @@ const topClients = async (query) => {
                 count: {$arrayElemAt: ["$count.count", 0]},
                 data: "$data"
             }
-        }
+        }]
         ))[0];
 
         return {count, data};
