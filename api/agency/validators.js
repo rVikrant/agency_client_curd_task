@@ -92,6 +92,7 @@ validator.updateClient = {
 // get agencies
 validator.topClients = {
   query: {
+    agencyId: joi.string().length(24),
     skip: joi.number().min(0),
     limit: joi.number().min(0)
   },

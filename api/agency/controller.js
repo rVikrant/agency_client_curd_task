@@ -119,11 +119,17 @@ const topClients = async (query) => {
     try {
         logger.info(`inside topClients fn agency controller:`);
 
+        let criteria = {
+          status: status[0],                 // only active clients if all then remove this
+          // agencyId: params.id           // for particular agency    
+      };
+
+      if(query.agencyId) {
+        criteria.agencyId = query.agencyId;
+      }
+
         let {count, data} = (await aggregateData(clientModel, {
-            $match: {
-                status: status[0],                 // only active clients if all then remove this
-                // agencyId: params.id           // for particular agency    
-            }
+            $match: criteria
         }, {
             $facet: {
                 count: [{$count: "count"}],
